@@ -119,7 +119,9 @@ class EmbarkController {
         engine.startService("libraryManager");
         engine.startService("codeRunner");
         engine.startService("web3");
-        engine.startService("pipeline");
+        engine.startService("pipeline", {
+          embarkCmd: 'run'
+        });
         engine.startService("deployment");
         engine.startService("storage");
         engine.startService("codeGenerator");
@@ -196,7 +198,9 @@ class EmbarkController {
         engine.startService("codeRunner");
         engine.startService("web3");
         if (!options.onlyCompile) {
-          engine.startService("pipeline");
+          engine.startService("pipeline", {
+            embarkCmd: 'build'
+          });
         }
         engine.startService("deployment", {onlyCompile: options.onlyCompile});
         engine.startService("storage");
@@ -265,7 +269,9 @@ class EmbarkController {
             engine.startService("libraryManager");
             engine.startService("codeRunner");
             engine.startService("web3");
-            engine.startService("pipeline");
+            engine.startService("pipeline", {
+              embarkCmd: 'console'
+            });
             engine.startService("deployment");
             engine.startService("storage");
             engine.startService("codeGenerator");
@@ -362,7 +368,9 @@ class EmbarkController {
         engine.startService("processManager");
         engine.startService("serviceMonitor");
         engine.startService("libraryManager");
-        engine.startService("pipeline");
+        engine.startService("pipeline", {
+          embarkCmd: 'graph'
+        });
         engine.startService("deployment", {onlyCompile: true});
         engine.startService("web3");
         engine.startService("codeGenerator");
@@ -449,7 +457,9 @@ class EmbarkController {
         engine.startService("libraryManager");
         engine.startService("codeRunner");
         engine.startService("web3");
-        engine.startService("pipeline");
+        engine.startService("pipeline", {
+          embarkCmd: 'upload'
+        });
         engine.startService("deployment");
         engine.startService("storage");
         engine.startService("codeGenerator");
